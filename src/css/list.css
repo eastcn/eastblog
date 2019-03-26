@@ -1,0 +1,14 @@
+.tags{
+    margin-bottom: 1rem;
+    color: blueviolet;
+}
+.tag{
+    margin-left: 1rem;  
+}
+.tag:hover{
+    cursor: pointer;
+}
+.tag:active{
+    color: black;
+    font-size: 1.1rem
+}

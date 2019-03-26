@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 0.95rem">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>blogdemo</title>
+</head>
+<body>
+    <div class="header">
+        <div class="head-img"></div>
+        <div class="head-name"><p>言笑@EAST</div>
+        <p class="head-about">路漫漫其修远兮，吾将上下而求索
+        <nav>
+            <ul class="head-menu">
+                <li>home</li>
+                <li>life</li>
+                <li>study</li>
+            </ul>
+        </nav> 
+    </div>
+    <div class="container">
+        <h2 class="chart">
+            <span>说点什么<br>something to say</span>
+        </h2>
+        <div>
+                君不见，黄河之水天上来，奔流到海不复回。<br>
+                君不见，高堂明镜悲白发，朝如青丝暮成雪。<br>
+                人生得意须尽欢，莫使金樽空对月。<br>
+                天生我材必有用，千金散尽还复来。<br>
+                烹羊宰牛且为乐，会须一饮三百杯。<br>
+                岑夫子，丹丘生，将进酒，杯莫停。<br>
+                与君歌一曲，请君为我倾耳听。<br>
+                钟鼓馔玉不足贵，但愿长醉不复醒。<br>
+                古来圣贤皆寂寞，惟有饮者留其名。<br>
+                陈王昔时宴平乐，斗酒十千恣欢谑。<br>
+                主人何为言少钱，径须沽取对君酌。<br>
+                五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。<br>
+        </div>
+        <h2 class="chart">
+                <span>学海无涯</span>
+        </h2>
+        <ul class="post_list">
+            <li><a href="https://www.baidu.com">post1</a></li>
+            <li><a href="https://www.baidu.com">post1</a></li>
+            <li><a href="https://www.baidu.com">post1</a></li>
+            <li><a href="https://www.baidu.com">post1</a></li>
+            <li><a href="https://www.baidu.com">post1</a></li>
+            <li><a href="https://www.baidu.com">post1</a></li>
+            <li><a href="https://www.baidu.com">post1</a></li>
+            <li><a href="https://www.baidu.com">post1</a></li>
+            <li><a href="https://www.baidu.com">post1</a></li>
+            <li><a href="https://www.baidu.com">post1</a></li>
+        </ul>
+        <h2 class="chart">
+                <span>Link</span>
+        </h2>
+        <ul class="link_list">
+            <li>
+                <b>Weibo:</b>
+                <a href="weibo"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="footer"></div>
+</body>
+<style>
+.header{
+    height: 250px;
+    text-align: center;
+    position: relative;
+    margin-top: 40px; 
+}
+.head-img{
+    margin: auto;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    background-image: url('r81.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.head-about{
+    /* font-size: 16px;  */
+    color: #797979;
+}
+.head-menu{
+    display: inline-block;
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 1rem;
+}
+.head-menu li{
+    display: inline-block;
+    padding: 0.5rem
+}
+.container{
+    margin: 0 auto;
+    width: 35rem;
+}
+.chart{
+    height: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom:1px solid #A7ADBA;
+    line-height: 0 ;
+    z-index: -1;
+    margin-top: 2.5rem;
+}
+.chart span{
+    z-index: 1;
+    background: white;
+    padding: 1rem;
+
+}
+.post_list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.post_list li{
+    margin-bottom: 0.5rem;
+}
+.link_list{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+</style>
+</html>
