@@ -17,8 +17,10 @@
     <div id="router">
       <router-view></router-view>
     </div>
-    <div class="footer">
-      <h1>footer</h1>
+    <div class="footer-div">
+      <div class="footer">
+        <p class="footer-p">Copyright © 2018-2019 EastCN</p>
+      </div>
     </div>
   </div>
 </template>
