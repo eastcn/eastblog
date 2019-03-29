@@ -9,7 +9,7 @@
           <span @click="Click" v-for="tag in tags" :key="tag" class="tag">{{tag}}</span>
       </div>
       <ul class="post_list">
-             <li v-for="(list,index) in lists" :key="index"><a href="https://www.baidu.com">{{list.title}}</a><span class="create_time">({{list.time}})</span></li>
+             <li v-for="(list,index) in lists" :key="index"><router-link :to="{ name: 'postContent', params: {id : 111}}">{{list.title}}</router-link><span class="create_time">({{list.time}})</span></li>
       </ul>
     </div>
   </div>

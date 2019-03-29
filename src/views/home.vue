@@ -22,7 +22,7 @@
                 <span>学海无涯</span>
         </h2>
         <ul class="post_list">
-            <li v-for="(list,index) in lists" :key="index"><a href="https://www.baidu.com">{{list.title}}</a><span class="create_time">({{list.time}})</span></li>
+            <li v-for="(list,index) in lists" :key="index"><router-link :to="{ path: '/post/:id', query: {id : list.id}}">{{list.title}}</router-link><span class="create_time">({{list.time}})</span></li>
         </ul>
         <h2 class="chart">
                 <span>杂乱无章</span>

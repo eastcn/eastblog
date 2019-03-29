@@ -4,6 +4,7 @@ import home from '@/views/home.vue'
 import postList from '@/views/list'
 import aboutMe from '@/views/aboutMe'
 import editor from '@/views/editor'
+import postContent from '@/views/post_content'
 import mavonEditor from 'mavon-editor'
 
 Vue.use(Router)
@@ -30,6 +31,11 @@ export default new Router({
       path: '/editor',
       name: 'editor',
       component: editor
+    },
+    {
+      path: '/post/:id',
+      name: 'postContent',
+      component: postContent
     }
   ]
 })
