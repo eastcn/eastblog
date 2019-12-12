@@ -44,7 +44,7 @@ export default {
       alert(1)
       this.$ajax({
         method: 'get',
-        url: '/api/blog/get/aritcleTitle',
+        url: 'http://localhost:8089/api/blog/get/aritcleTitle',
         params: {
           limit: 10,
           offset: 0
@@ -57,7 +57,7 @@ export default {
     request () {
       this.$ajax({
         method: 'get',
-        url: '/api/blog/get/aritcleTitle',
+        url: 'http://eastfly.top:8089/api/blog/get/aritcleTitle',
         params: {
           limit: 10,
           offset: 0

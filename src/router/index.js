@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/views/home.vue'
 import postList from '@/views/list'
+import rank from '@/views/rank'
 import aboutMe from '@/views/aboutMe'
 import editor from '@/views/editor'
 import postContent from '@/views/post_content'
@@ -36,6 +37,11 @@ export default new Router({
       path: '/post/:id',
       name: 'postContent',
       component: postContent
+    },
+    {
+      path: '/rank',
+      name: 'rank',
+      component: rank
     }
   ]
 })

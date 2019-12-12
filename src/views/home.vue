@@ -2,33 +2,40 @@
   <div id="app">
     <div class="container">
         <h2 class="chart">
-            <span>something to say</span>
+            <span >something to say</span>
         </h2>
-        <div>
-                君不见，黄河之水天上来，奔流到海不复回。<br>
-                君不见，高堂明镜悲白发，朝如青丝暮成雪。<br>
-                人生得意须尽欢，莫使金樽空对月。<br>
-                天生我材必有用，千金散尽还复来。<br>
-                烹羊宰牛且为乐，会须一饮三百杯。<br>
-                岑夫子，丹丘生，将进酒，杯莫停。<br>
-                与君歌一曲，请君为我倾耳听。<br>
-                钟鼓馔玉不足贵，但愿长醉不复醒。<br>
-                古来圣贤皆寂寞，惟有饮者留其名。<br>
-                陈王昔时宴平乐，斗酒十千恣欢谑。<br>
-                主人何为言少钱，径须沽取对君酌。<br>
-                五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。<br>
+        <div class="words" v-html="userInfo.words">
+                {{userInfo.words}}
         </div>
         <h2 class="chart">
                 <span>学海无涯</span>
         </h2>
         <ul class="post_list">
-            <li v-for="(list,index) in lists" :key="index"><router-link :to="{ path: '/post/:id', query: {id : list.id}}">{{list.title}}</router-link><span class="create_time">({{list.time}})</span></li>
+            <li v-for="(list,index) in lists_1" :key="index" class="cap">
+              <router-link class="link" :to="{ name: 'postContent', params: {id : list.id}}">
+                <span class="postTitle">{{index+1}}. {{list.name}}</span>
+                </router-link>
+                  <span class="tags"  v-for="(tag,i) in list.tags" :key="i">
+                    {{tag}}
+                    <el-divider direction="vertical"></el-divider>
+                  </span>
+                <span class="create_time">{{list.time}}</span>
+                </li>
         </ul>
         <h2 class="chart">
                 <span>杂乱无章</span>
         </h2>
         <ul class="post_list">
-             <li v-for="(list,index) in lists" :key="index"><a href="https://www.baidu.com">{{list.title}}</a><span class="create_time">({{list.time}})</span></li>
+             <li v-for="(list,index) in lists_2" :key="index" class="cap">
+               <router-link class="link" :to="{ name: 'postContent', params: {id : list.id}}">
+                <span class="postTitle">{{index+1}}. {{list.name}}</span>
+                </router-link>
+                <span class="tags"  v-for="(tag,i) in list.tags" :key="i">
+                    {{tag}}
+                    <el-divider direction="vertical"></el-divider>
+                  </span>
+                <span class="create_time">({{list.time}})</span>
+                </li>
         </ul>
         <h2 class="chart">
                 <span>Link</span>
@@ -39,16 +46,15 @@
                 <a>east_163.com</a>
             </li>
             <li>
-                <b style="color: #ec4525">Weibo:</b>
-                <a href="https://weibo.com/u/3802953271">@再也不听风了</a>
+                <el-link :underline="false" target="_blank" href="https://weibo.com/u/3802953271">Weibo @再也不听风了</el-link>
             </li>
             <li>
-                <b style="color: #378fe8">Zhihu:</b>
-                <a href="https://www.zhihu.com/people/edian-dian/activities">@听风来自地铁人海</a>
+                <b></b>
+                <el-link :underline="false" target="_blank" href="https://www.zhihu.com/people/edian-dian/activities">Zhihu @听风来自地铁人海</el-link>
             </li>
             <li>
-                <b>Github:</b>
-                <a href="https://github.com/eastcn">@eastcn</a>
+                <b></b>
+                <el-link :underline="false" target="_blank" href="https://github.com/eastcn">Github @eastcn</el-link>
             </li>
         </ul>
     </div>
@@ -61,25 +67,200 @@ export default {
   name: 'home',
   data () {
     return {
-      lists: []
+      lists_1: [],
+      lists_2: [],
+      userInfo: ''
     }
   },
   methods: {
-    requestArticleTitle () {
+    requestArticleTitle (kind) {
       this.$ajax({
         method: 'get',
-        url: '/api/blog/get/aritcleTitle',
+        url: 'http://eastfly.top:8089/api/article/getNameByKind',
+        params: {
+          'kind': kind
+        }
+      }).then(res => {
+        if (kind === '学习') {
+          this.lists_1 = res.data
+        } else if (kind === '杂乱') {
+          this.lists_2 = res.data
+        }
+      })
+    },
+    requestWords () {
+      this.$ajax({
+        method: 'get',
+        url: 'http://eastfly.top:8089/api/user/getUserWords',
         params: {}
       }).then(res => {
-        this.lists = res.data.data
+        this.userInfo = res.data
       })
     }
   },
   created () {
-    this.requestArticleTitle()
+    this.requestArticleTitle('学习')
+    this.requestArticleTitle('杂乱')
+    this.requestWords()
   }
 }
 </script>
 
 <style scoped>
+
+@media only screen and (max-width: 736px){
+  .el-link{
+    font-size: 10px;
+  }
+  .link{
+  text-decoration: none;
+  color: #303133
+  }
+  .link_list{
+    margin-left: 5%;
+}
+.link_list li{
+    width: 100%;
+    font-size: 10px;
+    border-bottom:0.5px solid #b6b8bd;
+    padding:0.5rem 0;
+    transition: .2s ease-out;
+    color: var(--color-font);
+}
+.cap{
+    width: 100%;
+    border-bottom:0.5px solid #cdd7ea;
+    padding:1rem 0;
+    transition: .2s ease-out;
+    color: var(--color-font);
+}
+.cap:hover{
+    padding-left: 1em;
+    background-color: #fff;
+    box-shadow: 0 16px 60px 0 rgba(0, 0, 0, .08), 0 6px 12px 0 rgba(0, 0, 0, .1);
+}
+.link_list li:hover{
+    padding-left: 1em;
+    background-color: #fff;
+    box-shadow: 0 16px 60px 0 rgba(0, 0, 0, .08), 0 6px 12px 0 rgba(0, 0, 0, .1);
+  }
+.create_time{
+  margin-left: 0.5rem;
+  font-size: 0.5rem;
+  }
+.tags{
+  margin-left: 0.5rem;
+  font-size: 0.5rem;
+  margin-right: -1rem;
+  }
+.words{
+      color: var(--color-font);
+      text-align: center;
+      line-height: 2rem;
+  }
+}
+@media (max-device-height:812px) and (-webkit-min-device-pixel-ratio:2){
+  .el-link{
+    font-size: 10px;
+  }
+  .link{
+  text-decoration: none;
+  color: #303133
+  }
+  .link_list{
+    margin-left: 5%;
+}
+.link_list li{
+    width: 90%;
+    font-size: 10px;
+    border-bottom:0.5px solid #b6b8bd;
+    padding:0.5rem 0;
+    transition: .2s ease-out;
+    color: var(--color-font);
+}
+.cap{
+    width: 100%;
+    border-bottom:0.5px solid #cdd7ea;
+    padding:1rem 0;
+    transition: .2s ease-out;
+    color: var(--color-font);
+}
+.cap:hover{
+    padding-left: 1em;
+    background-color: #fff;
+    box-shadow: 0 16px 60px 0 rgba(0, 0, 0, .08), 0 6px 12px 0 rgba(0, 0, 0, .1);
+}
+.link_list li:hover{
+    padding-left: 1em;
+    background-color: #fff;
+    box-shadow: 0 16px 60px 0 rgba(0, 0, 0, .08), 0 6px 12px 0 rgba(0, 0, 0, .1);
+  }
+.create_time{
+  margin-left: 0.5rem;
+  font-size: 0.5rem;
+  }
+.tags{
+  margin-left: 0.5rem;
+  font-size: 0.5rem;
+  margin-right: -1rem;
+  }
+.words{
+      color: var(--color-font);
+      text-align: center;
+      line-height: 2rem;
+  }
+}
+
+@media (min-device-width:736px){
+  .el-link{
+  font-size: 16px
+}
+.link{
+  text-decoration: none;
+  color: #303133
+}
+.link_list{
+    margin-left: 5%;
+}
+.link_list li{
+    width: 30%;
+    border-bottom:0.5px solid #b6b8bd;
+    padding:0.5rem 0;
+    transition: .2s ease-out;
+    color: var(--color-font);
+}
+.cap{
+    width: 90%;
+    border-bottom:0.5px solid #cdd7ea;
+    padding:1rem 0;
+    transition: .2s ease-out;
+    color: var(--color-font);
+}
+.cap:hover{
+    padding-left: 1em;
+    background-color: #fff;
+    box-shadow: 0 16px 60px 0 rgba(0, 0, 0, .08), 0 6px 12px 0 rgba(0, 0, 0, .1);
+}
+.link_list li:hover{
+    padding-left: 1em;
+    background-color: #fff;
+    box-shadow: 0 16px 60px 0 rgba(0, 0, 0, .08), 0 6px 12px 0 rgba(0, 0, 0, .1);
+}
+.post_list{
+  margin-left: 5%;
+}
+.create_time{
+  margin-left: 0.5rem;
+  font-size: 0.5rem;
+}
+.tags{
+  margin-left: 0.5rem;
+  font-size: 0.5rem;
+  margin-right: -1rem;
+}
+.words{
+      color: var(--color-font);
+      text-align: center;
+      line-height: 2rem;
+}}
 </style>
