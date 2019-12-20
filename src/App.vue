@@ -11,6 +11,7 @@
           <router-link to="/"><li><span title='首页' class="home_icon"></span></li></router-link>
           <!-- <router-link to='/post_list'><li><span title="文章列表" class="post_icon"></span></li></router-link> -->
           <router-link to="/about_me"><li><span title="关于我" class="about_icon"></span></li></router-link>
+          <router-link to="/movie"><li><span title="影视" class="movie_icon"></span></li></router-link>
         </ul>
       </nav>
     </div>

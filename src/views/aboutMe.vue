@@ -36,9 +36,8 @@ export default {
         title: '1',
         content: '支持自定义颜色',
         timestamp: '2018-04-03 20:46',
-        color: '#0bbd87',        
+        color: '#0bbd87',
         size: 'large'
-
       },
       {
         title: '1',
@@ -59,12 +58,13 @@ export default {
 }
 </script>
 <style scoped>
-.main{
-margin: 0 auto;
-width: 60%;
-}
-.block{
-margin-left: 5%;
-margin-right: 5%;
-}
+  .main{
+    margin: 0 auto;
+    width: 60%;
+  }
+  .block{
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
 </style>

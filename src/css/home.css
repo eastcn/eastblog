@@ -102,11 +102,11 @@
   font-size: 14px;
 }
 .home_icon{
-    background-image: url('../assets/home_blue.png');
+    background-image: url('../assets/icon/index.png');
     background-size: cover;
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
     margin: 0;
     padding: 0;
 }
@@ -116,12 +116,27 @@
     background-position: center center;
     padding: 0 auto;
 }
+.movie_icon{
+  background-image: url('../assets/icon/movie.png');
+  background-size: cover;
+  display: inline-block;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin: 0;
+  padding: 0;
+}
+.movie_icon:hover{
+  box-shadow: #797979;
+  transform: scale(1.4);
+  background-position: center center;
+  padding: 0 auto;
+}
 .post_icon{
-    background-image: url('../assets/discovery.png');
+    background-image: url('../assets/icon/index.png');
     background-size: cover;
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
     margin: 0;
     padding: 0;
 }
@@ -132,11 +147,11 @@
     padding: 0 auto;
 }
 .about_icon{
-    background-image: url('../assets/mine.png');
+    background-image: url('../assets/icon/user_1.png');
     background-size: cover;
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
+    width: 2.2rem;
+    height: 2.2rem;
     margin: 0;
     padding: 0;
 }
@@ -163,7 +178,7 @@
         margin-top: -0.3rem;
         margin-bottom: 0.6rem;
         font-size: 0.5rem;
-        font-weight: normal; 
+        font-weight: normal;
         font-family: -webkit-pictograph;
         text-align: center;
         display: none;
@@ -176,7 +191,7 @@
         margin-bottom: 0.6rem;
         font-size: 0.5rem;
         text-align: center;
-        font-weight: normal; 
+        font-weight: normal;
         font-family: -webkit-pictograph;
     }
     .chart span{

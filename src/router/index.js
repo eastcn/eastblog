@@ -6,6 +6,7 @@ import rank from '@/views/rank'
 import aboutMe from '@/views/aboutMe'
 import editor from '@/views/editor'
 import postContent from '@/views/post_content'
+import movie from '@/views/movie'
 import mavonEditor from 'mavon-editor'
 
 Vue.use(Router)
@@ -42,6 +43,11 @@ export default new Router({
       path: '/rank',
       name: 'rank',
       component: rank
+    },
+    {
+      path: '/movie',
+      name: 'movie',
+      component: movie
     }
   ]
 })
