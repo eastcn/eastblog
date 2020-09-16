@@ -7,6 +7,7 @@
     :editable = "false"
     :subfield = "false"
     :defaultOpen = "preview"
+    :navigation = "true"
     :toolbarsFlag = "false"></mavon-editor>
   </div>
 </template>

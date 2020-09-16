@@ -20,7 +20,7 @@
     </div>
     <div class="footer-div">
       <div class="footer">
-        <p class="footer-1">浙ICP备19030865号</p>
+        <p class="footer-1"><a href="http://www.beian.miit.gov.cn">浙ICP备19030865号</a></p>
         <p class="footer-2">Copyright ©2019 ♥ east</p>
         <p class="footer-2">Developed and Managed By East Yan.</p>
       </div>

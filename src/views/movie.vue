@@ -9,22 +9,22 @@
                           :timestamp="time_line" placement="top">
           <el-card>
             <el-row>
-              <el-col :span="7" class="list" v-for="(subject, a) in subjects"
+              <el-col :span="7" v-for="(subject, a) in subjects"
                       :key="a" v-if="(subject.create_time == time_line)"
-                      :offset="3">
+                       class="list">
                 <a :href="subject.url" style="text-decoration:none">
-                <el-card :body-style="{ padding: '0px' }">
-                  <img :src="subject.cover" class="image">
-                  <div style="padding: 14px;">
-                    <span>{{subject.name}}</span>
-                    <div class="bottom clearfix">
+                <el-card :body-style="{ padding: '0px' }" class="card">
+                    <img :src="subject.cover" class="image">
+                      <div style="padding: 14px;">
+                        <span>{{subject.name}}</span>
+                      <div class="bottom clearfix">
                       <time class="time">
                         {{ subject.types }}
                       </time>
-                      <h4 class="rate">{{subject.rate}}分</h4>
+                        <h4 class="rate">{{subject.rate}}分</h4>
                     </div>
                   </div>
-                </el-card>
+                  </el-card>
                 </a>
               </el-col>
             </el-row>
@@ -65,7 +65,7 @@ export default {
     getMovieSubjects (offset, limit) {
       this.$ajax({
         method: 'get',
-        url: 'http://127.0.0.1:5000/api/movie/subjects',
+        url: 'http://eastfly.top:8089/api/movie/subjects',
         params: {
           offset: offset,
           limit: limit
@@ -82,7 +82,7 @@ export default {
     getMore () {
       this.$ajax({
         method: 'get',
-        url: 'http://127.0.0.1:5000/api/movie/subjects',
+        url: 'http://eastfly.top:8089/api/movie/subjects',
         params: {
           offset: this.offset + 7,
           limit: this.limit
@@ -176,14 +176,21 @@ export default {
     float: right;
     padding: 0;
     margin: 0;
+    color: #70af0a;
   }
   .clearfix:before,
   .clearfix:after {
     display: table;
     content: "";
   }
+  .list{
+    margin-left:8% ;
+  }
 
   .clearfix:after {
     clear: both
+  }
+  .card{
+    float: left;
   }
 </style>
