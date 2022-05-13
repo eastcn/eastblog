@@ -83,7 +83,7 @@ export default {
     getNftRecords() {
       this.$ajax({
         method: "get",
-        url: "http://localhost:8089/getByTaskId?taskId=1",
+        url: "http://eastfly.top:8087/getByTaskId?taskId=1",
       }).then((res) => {
         var data = res.data;
         console.log(data);
