@@ -7,6 +7,7 @@ import aboutMe from '@/views/aboutMe'
 import editor from '@/views/editor'
 import postContent from '@/views/post_content'
 import movie from '@/views/movie'
+import nft from '@/views/nft'
 import mavonEditor from 'mavon-editor'
 
 Vue.use(Router)
@@ -48,6 +49,11 @@ export default new Router({
       path: '/movie',
       name: 'movie',
       component: movie
+    },
+    {
+      path: '/nft',
+      name: 'nft',
+      component: nft
     }
   ]
 })
